@@ -11,7 +11,8 @@ import java.util.List;
 @Controller
 @RequestMapping("events")
 public class EventController {
-    
+
+    //lives at /events
     @GetMapping
     public String displayAllEvents(Model model) {
         List<String> events = new ArrayList<>();
@@ -21,5 +22,11 @@ public class EventController {
         events.add("SpringOne Platform");
         model.addAttribute("events", events);
         return "events/index";
+    }
+
+    //lives at /events/create
+    @GetMapping("create")
+    public String renderCreateEventForm() {
+        return "events/create";
     }
 }
